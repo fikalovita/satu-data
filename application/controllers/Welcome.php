@@ -1,10 +1,13 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Welcome extends CI_Controller
+
 {
 	public function __construct()
 	{
+
 		parent::__construct();
 		$this->load->model('M_index');
 	}
@@ -13,7 +16,10 @@ class Welcome extends CI_Controller
 		$data['data_kamar'] = $this->M_index->get_data()->result();
 		$json = json_encode($data);
 		print_r($json);
-		die();
-		$this->load->view('welcome_message', $data);
+	}
+
+	public function template()
+	{
+		$this->load->view('template');
 	}
 }
